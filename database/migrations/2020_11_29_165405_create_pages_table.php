@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->string('name', 60);
             $table->unsignedBigInteger('page_group_id')->index();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('content');
             $table->timestamps();
         });

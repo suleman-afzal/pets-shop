@@ -17,7 +17,9 @@
 @include('includes.user.navbar-cart')
 <!-- Cart Nav-bar End -->
 <div class="offcanvas-overlay"></div>
+<div id="app">
 @yield('content')
+</div>
 @yield('ajax_script')
 @include('includes.user.footer')
 @include('includes.user.quick-view')

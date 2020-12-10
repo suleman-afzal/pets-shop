@@ -3,8 +3,8 @@
 @endpush
 @section('content')
 
-
-    @include('includes.user.slider')
+<slider></slider>
+{{--    @include('includes.user.slider')--}}
 
     @include('includes.user.thumb-category-area')
 
