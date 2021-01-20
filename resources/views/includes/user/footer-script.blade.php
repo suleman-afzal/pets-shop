@@ -15,9 +15,10 @@
 <script src="assets/js/plugins/elevateZoom.js"></script></script> -->
 
 <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+<script  src="{{ asset('js/app.js') }}"></script>
 <script src="assets/js/vendor/vendor.min.js"></script>
 <script src="assets/js/plugins/plugins.min.js"></script>
 
 <!-- Main Activation JS -->
 <script src="assets/js/main.js"></script>
-<script  src="{{ asset('js/app.js') }}"></script>
+

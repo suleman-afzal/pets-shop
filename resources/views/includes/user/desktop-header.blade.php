@@ -75,6 +75,7 @@
 <!-- Header Section End Here -->
 
 <!-- Header Nav End -->
-@include('includes.user.desktop-navbar')
+<desktop-navbar></desktop-navbar>
+{{--@include('includes.user.desktop-navbar')--}}
 
 <!-- Header Nav End -->

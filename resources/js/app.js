@@ -3,6 +3,7 @@ window.Vue = require('vue');
 
 require('./bootstrap');
 require('./components/user');
+require('./components/auth');
 
 //support vuex
 import Vuex from 'vuex'
@@ -22,4 +23,4 @@ const app = new Vue({
 
     store, //vuex
 
-});
+})

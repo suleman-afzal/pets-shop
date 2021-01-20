@@ -13,7 +13,7 @@ class CreatePageGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::table('page_groups', function (Blueprint $table) {
+        Schema::create('page_groups', function (Blueprint $table) {
             $table->id();
             $table->string('name', 60);
             $table->string('description')->nullable();

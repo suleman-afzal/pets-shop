@@ -13,9 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/register', function () {});
+Route::get('/home', function () {
+    return view('user.index');
+});
 
+Route::get('/categories', 'CategoryController@getCategories');
+Route::post('/all-categories', 'CategoryController@getCategories');
+
+
+
+Route::get('/add-product', function () {
+    return view('user.index');
+});
+Route::get('/', function () {
+//dd(route('register'));
+      //  return view('auth.login');
         return view('user.index');
+  //      return view('user.indphpex');
         //return view('layouts.user');
     //    return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

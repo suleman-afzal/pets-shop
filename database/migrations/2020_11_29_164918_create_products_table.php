@@ -30,7 +30,10 @@ class CreateProductsTable extends Migration
             $table->boolean('is_featured')->default(false);
             $table->float('longitude')->default(0)->index();
             $table->float('latitude')->default(0)->index();
-            $table->string('location')->nullable();
+            $table->string('city')->nullable();
+            $table->string('street')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
             $table->unsignedTinyInteger('status')->default(false)->comment('Publish status');
             $table->timestamps();
         });

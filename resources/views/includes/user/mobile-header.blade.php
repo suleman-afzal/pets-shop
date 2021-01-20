@@ -47,6 +47,6 @@
 
 
 <!-- OffCanvas Search Start -->
-@include('includes.user.mobile-navbar')
-
+{{--@include('includes.user.mobile-navbar')--}}
+<mobile-navbar></mobile-navbar>
 
