@@ -26,12 +26,12 @@
                                             <form id="msform">
                                                 <!-- progressbar -->
                                                 <ul id="progressbar">
-                                                    <li class="active" id="account"><strong>Category</strong></li>
-                                                    <li id="personal"><strong>Personal</strong></li>
-                                                    <li id="payment"><strong>Payment</strong></li>
-                                                    <li id="confirm"><strong>Finish</strong></li>
+                                                    <li :class="current_step >= 1 ? 'active':''" id="account"><strong>Category</strong></li>
+                                                    <li :class="current_step >= 2 ? 'active':''" id="personal"><strong>Details</strong></li>
+                                                    <li :class="current_step >= 3 ? 'active':''"  id="payment"><strong>Photos</strong></li>
+                                                    <li :class="current_step >= 4 ? 'active':''"  id="confirm"><strong>Finish</strong></li>
                                                 </ul> <!-- fieldsets -->
-                                                <fieldset>
+                                                <fieldset v-if="current_step == 1">
                                                     <div class="form-card">
                                                         <h2 class="fs-title">Choose Category</h2>
                                                         <div class="row">
@@ -78,18 +78,28 @@
                                                            :disabled="!new_product.level1_category_id > 0 || !new_product.level2_category_id > 0"
                                                     />
                                                 </fieldset>
-                                                <fieldset>
+                                                <fieldset v-else-if="current_step === 2">
                                                     <div class="form-card">
-                                                        <h2 class="fs-title">Personal Information</h2> <input
-                                                        type="text" name="fname" placeholder="First Name"/> <input
-                                                        type="text" name="lname" placeholder="Last Name"/> <input
-                                                        type="text" name="phno" placeholder="Contact No."/> <input
-                                                        type="text" name="phno_2" placeholder="Alternate Contact No."/>
+                                                        <h2 class="fs-title">Detail Description</h2>
+
+                                                        <select class="form-control mt-3">
+                                                            <option selected value="0">Choose Category</option>
+                                                            <option>Category 1</option>
+                                                        </select>
+
+                                                        <input type="text" name="title" placeholder="Add Title"/>
+                                                        <textarea placeholder="Description"></textarea>
+                                                        <input type="text" name="price" placeholder="Price"/>
+                                                        <input type="text" name="phone" placeholder="Phone"/>
+
+                                                        <div class="custom-control custom-switch">
+                                                            <label class="custom-control-label" for="switch1">Show my phone number on my ads</label>
+                                                            <input type="checkbox" class="custom-control-input" id="switch1">
+                                                        </div>
                                                     </div>
                                                     <input type="button" name="previous"
-                                                           class="previous action-button-previous" value="Previous"/>
-                                                    <input type="button" name="next" class="next action-button"
-                                                           value="Next Step"/>
+                                                           class="previous action-button-previous" @click="current_step=1" value="Previous"/>
+                                                    <input type="button" name="next" class="next action-button" @click="moveToNextStep()" value="Next Step"/>
                                                 </fieldset>
                                                 <fieldset>
                                                     <div class="form-card">
@@ -230,6 +240,11 @@ export default {
         current_step:1,
         }
     },
+    action:{
+        moveToNextStep(){
+
+        },
+    },
     mounted() {
     },
     computed: {
@@ -317,6 +332,7 @@ html {
 }
 
 #msform input,
+#msform select,
 #msform textarea {
     padding: 0px 8px 4px 8px;
     border: none;
