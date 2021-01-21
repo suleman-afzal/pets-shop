@@ -34,6 +34,15 @@
                                                 <fieldset v-if="current_step == 1">
                                                     <div class="form-card">
                                                         <h2 class="fs-title">Choose Category</h2>
+                                                        <vue-upload-multiple-image
+                                                            @upload-success="uploadImageSuccess"
+                                                            @before-remove="beforeRemove"
+                                                            @edit-image="editImage"
+                                                            @data-change="dataChange"
+                                                            :data-images="images"
+                                                        ></vue-upload-multiple-image>
+
+
                                                         <div class="row">
                                                         <div class="col-12">
                                                             <div class="list-group col-6 float-left" id="list-tab" role="tablist">
@@ -233,11 +242,19 @@
 
 <script>
 import {mapState} from 'vuex';
+import VueUploadMultipleImage from 'vue-upload-multiple-image'
 
 export default {
     data(){
         return {
         current_step:1,
+            images:[
+                {
+                    path: 'http://example.com/image.jpg',
+                    caption: 'caption to display. receive', // Optional
+                }
+            ]
+
         }
     },
     action:{
@@ -246,6 +263,9 @@ export default {
         },
     },
     mounted() {
+    },
+    components: {
+        VueUploadMultipleImage,
     },
     computed: {
         ...mapState({
