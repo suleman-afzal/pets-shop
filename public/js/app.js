@@ -51762,10 +51762,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports, __webpack_require__) {
 
 Vue.component('login', function () {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./auth/login.vue */ "./resources/js/components/auth/login.vue"));
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./auth/login.vue */ "./resources/js/components/auth/login.vue"));
 });
 Vue.component('forgot-password', function () {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./auth/forgotPassword.vue */ "./resources/js/components/auth/forgotPassword.vue"));
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./auth/forgotPassword.vue */ "./resources/js/components/auth/forgotPassword.vue"));
 });
 
 /***/ }),
@@ -51781,16 +51781,16 @@ Vue.component('slider', function () {
   return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./user/sliders/slider.vue */ "./resources/js/components/user/sliders/slider.vue"));
 });
 Vue.component('breadcrumb', function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./user/breadcrumbs/breadcrumb.vue */ "./resources/js/components/user/breadcrumbs/breadcrumb.vue"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./user/breadcrumbs/breadcrumb.vue */ "./resources/js/components/user/breadcrumbs/breadcrumb.vue"));
 });
 Vue.component('desktopNavbar', function () {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./user/categories/desktopNavbar.vue */ "./resources/js/components/user/categories/desktopNavbar.vue"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./user/categories/desktopNavbar.vue */ "./resources/js/components/user/categories/desktopNavbar.vue"));
 });
 Vue.component('mobileNavbar', function () {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./user/categories/mobileNavbar.vue */ "./resources/js/components/user/categories/mobileNavbar.vue"));
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./user/categories/mobileNavbar.vue */ "./resources/js/components/user/categories/mobileNavbar.vue"));
 });
 Vue.component('addProduct', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./user/products/addProduct.vue */ "./resources/js/components/user/products/addProduct.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./user/products/addProduct.vue */ "./resources/js/components/user/products/addProduct.vue"));
 });
 
 /***/ }),
