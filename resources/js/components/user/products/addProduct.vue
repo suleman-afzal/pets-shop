@@ -34,15 +34,6 @@
                                                 <fieldset v-if="current_step == 1">
                                                     <div class="form-card">
                                                         <h2 class="fs-title">Choose Category</h2>
-                                                        <vue-upload-multiple-image
-                                                            @upload-success="uploadImageSuccess"
-                                                            @before-remove="beforeRemove"
-                                                            @edit-image="editImage"
-                                                            @data-change="dataChange"
-                                                            :data-images="images"
-                                                        ></vue-upload-multiple-image>
-
-
                                                         <div class="row">
                                                         <div class="col-12">
                                                             <div class="list-group col-6 float-left" id="list-tab" role="tablist">
@@ -108,58 +99,79 @@
                                                     </div>
                                                     <input type="button" name="previous"
                                                            class="previous action-button-previous" @click="current_step=1" value="Previous"/>
-                                                    <input type="button" name="next" class="next action-button" @click="moveToNextStep()" value="Next Step"/>
+                                                    <input type="button" name="next" class="next action-button" @click="current_step=3" value="Next Step"/>
                                                 </fieldset>
-                                                <fieldset>
+
+                                                <fieldset v-if="current_step == 3">
                                                     <div class="form-card">
-                                                        <h2 class="fs-title">Payment Information</h2>
-                                                        <div class="radio-group">
-                                                            <div class='radio' data-value="credit"><img
-                                                                src="https://i.imgur.com/XzOzVHZ.jpg" width="200px"
-                                                                height="100px"></div>
-                                                            <div class='radio' data-value="paypal"><img
-                                                                src="https://i.imgur.com/jXjwZlj.jpg" width="200px"
-                                                                height="100px"></div>
-                                                            <br>
+                                                        <h2 class="fs-title">Images</h2>
+<!--                                                        <div class="radio-group">-->
+<!--                                                            <div class='radio' data-value="credit"><img-->
+<!--                                                                src="https://i.imgur.com/XzOzVHZ.jpg" width="200px"-->
+<!--                                                                height="100px"></div>-->
+<!--                                                            <div class='radio' data-value="paypal"><img-->
+<!--                                                                src="https://i.imgur.com/jXjwZlj.jpg" width="200px"-->
+<!--                                                                height="100px"></div>-->
+<!--                                                            <br>-->
+<!--                                                        </div>-->
+                                                        <label class="pay">Choose images*</label>
+                                                        <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
+                                                            <vue-upload-multiple-image
+                                                                @upload-success="uploadImageSuccess"
+                                                                @before-remove="beforeRemove"
+                                                                @edit-image="editImage"
+                                                                @data-change="dataChange"
+                                                                :data-images="images"
+                                                                :dropText="'Drag & drop detail images'"
+                                                                :dragText="'Drag & drop  detail images'"
+                                                                :popupText="'Product detail images'"
+                                                                :primaryText="'thumbnail'"
+                                                                :markIsPrimaryText="'Detail Image'"
+                                                                :browseText="'Browse image'"
+                                                                :max-image="5"
+                                                                :showDelete="false"
+                                                                :accept="'image/gif,image/jpeg,image/png,image/bmp,image/jpg'"
+                                                            ></vue-upload-multiple-image>
                                                         </div>
-                                                        <label class="pay">Card Holder Name*</label> <input type="text"
-                                                                                                            name="holdername"
-                                                                                                            placeholder=""/>
-                                                        <div class="row">
-                                                            <div class="col-9"><label class="pay">Card Number*</label>
-                                                                <input type="text" name="cardno" placeholder=""/></div>
-                                                            <div class="col-3"><label class="pay">CVC*</label> <input
-                                                                type="password" name="cvcpwd" placeholder="***"/></div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-3"><label class="pay">Expiry Date*</label>
-                                                            </div>
-                                                            <div class="col-9"><select class="list-dt" id="month"
-                                                                                       name="expmonth">
-                                                                <option selected>Month</option>
-                                                                <option>January</option>
-                                                                <option>February</option>
-                                                                <option>March</option>
-                                                                <option>April</option>
-                                                                <option>May</option>
-                                                                <option>June</option>
-                                                                <option>July</option>
-                                                                <option>August</option>
-                                                                <option>September</option>
-                                                                <option>October</option>
-                                                                <option>November</option>
-                                                                <option>December</option>
-                                                            </select> <select class="list-dt" id="year" name="expyear">
-                                                                <option selected>Year</option>
-                                                            </select></div>
-                                                        </div>
+
+
+<!--                                                        &lt;!&ndash;                                                        <input type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                                                            name="holdername"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                                                            placeholder=""/>&ndash;&gt;-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-9"><label class="pay">Card Number*</label>-->
+<!--                                                                <input type="text" name="cardno" placeholder=""/></div>-->
+<!--                                                            <div class="col-3"><label class="pay">CVC*</label> <input-->
+<!--                                                                type="password" name="cvcpwd" placeholder="***"/></div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-3"><label class="pay">Expiry Date*</label>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-9"><select class="list-dt" id="month"-->
+<!--                                                                                       name="expmonth">-->
+<!--                                                                <option selected>Month</option>-->
+<!--                                                                <option>January</option>-->
+<!--                                                                <option>February</option>-->
+<!--                                                                <option>March</option>-->
+<!--                                                                <option>April</option>-->
+<!--                                                                <option>May</option>-->
+<!--                                                                <option>June</option>-->
+<!--                                                                <option>July</option>-->
+<!--                                                                <option>August</option>-->
+<!--                                                                <option>September</option>-->
+<!--                                                                <option>October</option>-->
+<!--                                                                <option>November</option>-->
+<!--                                                                <option>December</option>-->
+<!--                                                            </select> <select class="list-dt" id="year" name="expyear">-->
+<!--                                                                <option selected>Year</option>-->
+<!--                                                            </select></div>-->
+<!--                                                        </div>-->
                                                     </div>
                                                     <input type="button" name="previous"
-                                                           class="previous action-button-previous" value="Previous"/>
-                                                    <input type="button" name="make_payment" class="next action-button"
-                                                           value="Confirm"/>
+                                                           class="previous action-button-previous" @click="current_step=3" value="Previous"/>
+                                                    <input type="button" name="next" class="next action-button" @click="current_step=4" value="Next Step"/>
                                                 </fieldset>
-                                                <fieldset>
+                                                <fieldset v-if="current_step==4">
                                                     <div class="form-card">
                                                         <h2 class="fs-title text-center">Success !</h2> <br><br>
                                                         <div class="row justify-content-center">
@@ -249,20 +261,42 @@ export default {
         return {
         current_step:1,
             images:[
-                {
-                    path: 'http://example.com/image.jpg',
-                    caption: 'caption to display. receive', // Optional
-                }
+                // {
+                //     path: 'http://example.com/image.jpg',
+                //     caption: 'caption to display. receive', // Optional
+                // }
             ]
 
         }
     },
-    action:{
+    methods:{
+        uploadImageSuccess(formData, index, fileList) {
+            console.log('data', formData, index, fileList)
+            // Upload image api
+            // axios.post('http://your-url-upload', formData).then(response => {
+            //   console.log(response)
+            // })
+        },
+        beforeRemove (index, done, fileList) {
+            console.log('index', index, fileList)
+            var r = confirm("remove image")
+            if (r == true) {
+                done()
+            } else {
+            }
+        },
+        editImage (formData, index, fileList) {
+            console.log('edit data', formData, index, fileList)
+        },
+        dataChange(){
+
+        },
         moveToNextStep(){
 
         },
     },
     mounted() {
+        this.moveToNextStep();
     },
     components: {
         VueUploadMultipleImage,
