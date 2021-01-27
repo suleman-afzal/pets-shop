@@ -52025,7 +52025,96 @@ var module_mutations = _objectSpread(_objectSpread({}, _categories_mutations__WE
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var actions = {};
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var actions = {
+  wizardMoveNext: function () {
+    var _wizardMoveNext = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
+      var state, commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              state = _ref.state, commit = _ref.commit;
+              commit('MOVE_TO_NEXT_WIZARD_STEP'); //return step_number <= current_step ? 'active':''
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function wizardMoveNext(_x) {
+      return _wizardMoveNext.apply(this, arguments);
+    }
+
+    return wizardMoveNext;
+  }(),
+  wizardMovePrevious: function () {
+    var _wizardMovePrevious = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref2) {
+      var state, commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              state = _ref2.state, commit = _ref2.commit;
+              commit('MOVE_TO_PREVIOUS_WIZARD_STEP'); //return step_number <= current_step ? 'active':''
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function wizardMovePrevious(_x2) {
+      return _wizardMovePrevious.apply(this, arguments);
+    }
+
+    return wizardMovePrevious;
+  }(),
+  addNewProduct: function () {
+    var _addNewProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref3) {
+      var state, commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              state = _ref3.state, commit = _ref3.commit;
+              _context3.next = 3;
+              return axios({
+                url: '/add-new-product',
+                method: 'POST',
+                data: state.new_product
+              }).then(function (resp) {//commit('HIDE_LOADER', null, {root: true});
+              })["catch"](function (err) {
+                console.log(err); //commit('HIDE_LOADER', null, {root: true});
+              });
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    function addNewProduct(_x3) {
+      return _addNewProduct.apply(this, arguments);
+    }
+
+    return addNewProduct;
+  }()
+};
 /* harmony default export */ __webpack_exports__["default"] = (actions);
 
 /***/ }),
@@ -52039,13 +52128,20 @@ var actions = {};
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var mutations = {// SET_NEW_PRODUCT_LEVEL1_CATEGORY_ID(state, id) {
+var mutations = {
+  // SET_NEW_PRODUCT_LEVEL1_CATEGORY_ID(state, id) {
   //     return state.product.new_product.level1_category_id = id;
   // },
   //
   // SET_NEW_PRODUCT_LEVEL1_CATEGORY_ID(state, id) {
   //     return state.product.new_product.level1_category_id = id;
   // },
+  MOVE_TO_NEXT_WIZARD_STEP: function MOVE_TO_NEXT_WIZARD_STEP(state) {
+    return ++state.product.new_product.current_step;
+  },
+  MOVE_TO_PREVIOUS_WIZARD_STEP: function MOVE_TO_PREVIOUS_WIZARD_STEP(state) {
+    return --state.product.new_product.current_step;
+  }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
 
@@ -52055,13 +52151,15 @@ var mutations = {// SET_NEW_PRODUCT_LEVEL1_CATEGORY_ID(state, id) {
 /*!***************************************************!*\
   !*** ./resources/js/store/user/products/state.js ***!
   \***************************************************/
-/*! exports provided: default */
+/*! exports provided: init_new_product, init_new_product_errors, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var state = {
-  new_product: {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "init_new_product", function() { return init_new_product; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "init_new_product_errors", function() { return init_new_product_errors; });
+var init_new_product = function init_new_product() {
+  return {
     title: '',
     description: '',
     images: [],
@@ -52072,8 +52170,29 @@ var state = {
     phone: '',
     level1_category_id: 0,
     level2_category_id: 0,
-    level3_category_id: 0
-  }
+    level3_category_id: 0,
+    current_step: 1
+  };
+};
+var init_new_product_errors = function init_new_product_errors() {
+  return {
+    title: null,
+    description: null,
+    images: null,
+    price: null,
+    country: null,
+    city: null,
+    state: null,
+    show_phone: null,
+    phone: null,
+    level1_category_id: null,
+    level2_category_id: null,
+    level3_category_id: null
+  };
+};
+var state = {
+  new_product: init_new_product(),
+  new_product_errors: init_new_product_errors()
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

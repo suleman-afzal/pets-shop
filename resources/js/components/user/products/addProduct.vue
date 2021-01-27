@@ -5,188 +5,42 @@
          aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
-                <!--                <div class="modal-header">-->
-                <!--                    <h5 class="modal-title" id="addProductModalTitle">POST YOUR AD</h5>-->
-                <!--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                <!--                        <span aria-hidden="true">&times;</span>-->
-                <!--                    </button>-->
-                <!--                </div>-->
                 <div class="modal-body">
-
-
-                    <!-- MultiStep Form -->
+                    <!-- Add Product Form -->
                     <div class="container-fluid" id="grad1">
                         <div class="row justify-content-center mt-0">
                             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                                    <h2><strong>Sign Up Your User Account</strong></h2>
+                                    <h2><strong>ADD NEW PRODUCT</strong></h2>
                                     <p>Fill all form field to go to next step</p>
                                     <div class="row">
                                         <div class="col-md-12 mx-0">
                                             <form id="msform">
-                                                <!-- progressbar -->
+
+                                                <!-- progressbar start -->
                                                 <ul id="progressbar">
-                                                    <li :class="current_step >= 1 ? 'active':''" id="account"><strong>Category</strong></li>
-                                                    <li :class="current_step >= 2 ? 'active':''" id="personal"><strong>Details</strong></li>
-                                                    <li :class="current_step >= 3 ? 'active':''"  id="payment"><strong>Photos</strong></li>
-                                                    <li :class="current_step >= 4 ? 'active':''"  id="confirm"><strong>Finish</strong></li>
-                                                </ul> <!-- fieldsets -->
-                                                <fieldset v-if="current_step == 1">
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Choose Category</h2>
-                                                        <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="list-group col-6 float-left" id="list-tab" role="tablist">
+                                                    <li :class="wizardHeaderClass(1)" id="add-product-category-step">
+                                                        <strong>Category</strong></li>
+                                                    <li :class="wizardHeaderClass(2)" id="add-product-detail-step">
+                                                        <strong>Details</strong></li>
+                                                    <li :class="wizardHeaderClass(3)" id="add-product-images-step">
+                                                        <strong>Photos</strong></li>
+                                                    <li :class="wizardHeaderClass(4)" id="add-product-address-step">
+                                                        <strong>Finish</strong></li>
+                                                </ul>
+                                                <!-- progressbar end -->
 
-                                                                <a :class="new_product.level1_category_id === category.id ?'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'"
-                                                                   :id="'category-'+category.id"
-                                                                   data-toggle="list"
-                                                                   :href="'#category-'+category.id+'-sub'" role="tab"
-                                                                   :aria-controls="'category-'+category.id+'-sub'"
-                                                                   @click="new_product.level1_category_id = category.id; new_product.level2_category_id = 0"
-                                                                   v-for="category in categories">{{
-                                                                        category.title
-                                                                    }}</a>
+                                                <!-- Wizard Steps Forms Start -->
+                                                <product-category-step
+                                                    v-if="new_product.current_step === 1"></product-category-step>
+                                                <product-detail-step
+                                                    v-else-if="new_product.current_step === 2"></product-detail-step>
+                                                <product-images-step
+                                                    v-else-if="new_product.current_step === 3"></product-images-step>
+                                                <product-address-step
+                                                    v-else-if="new_product.current_step === 4"></product-address-step>
+                                                <!-- Wizard Steps Forms End -->
 
-                                                            </div>
-
-                                                            <div class="list-group col-6" id="list-tab2" role="tablist"
-                                                                 v-if="new_product.level1_category_id > 0">
-                                                                <a :class="new_product.level2_category_id === sub_category.id ?'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'"
-                                                                   :id="'category-'+sub_category.id"
-                                                                   data-toggle="list"
-                                                                   :href="'#category-'+sub_category.id+'-sub'"
-                                                                   role="tab"
-                                                                   :aria-controls="'category-'+sub_category.id+'-sub'"
-                                                                   @click="new_product.level2_category_id = sub_category.id"
-                                                                   v-for="sub_category in categories.filter(category_ => { return category_.id===new_product.level1_category_id})[0].sub_categories">{{
-                                                                        sub_category.title
-                                                                    }}</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                        <!--                                                        <input type="email" name="email" placeholder="Email Id"/> -->
-                                                        <!--                                                        <input type="text" name="uname" placeholder="UserName"/> -->
-                                                        <!--                                                        <input type="password" name="pwd" placeholder="Password"/> -->
-                                                        <!--                                                        <input type="password" name="cpwd" placeholder="Confirm Password"/>-->
-                                                    </div>
-                                                    <input type="button" name="next"
-                                                           value="Next Step"
-                                                           class="next action-button disabled"
-                                                           @click="new_product.level1_category_id > 0 && new_product.level2_category_id > 0 ? current_step = 2:false"
-                                                           :disabled="!new_product.level1_category_id > 0 || !new_product.level2_category_id > 0"
-                                                    />
-                                                </fieldset>
-                                                <fieldset v-else-if="current_step === 2">
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Detail Description</h2>
-
-                                                        <select class="form-control mt-3">
-                                                            <option selected value="0">Choose Category</option>
-                                                            <option>Category 1</option>
-                                                        </select>
-
-                                                        <input type="text" name="title" placeholder="Add Title"/>
-                                                        <textarea placeholder="Description"></textarea>
-                                                        <input type="text" name="price" placeholder="Price"/>
-                                                        <input type="text" name="phone" placeholder="Phone"/>
-
-                                                        <div class="custom-control custom-switch">
-                                                            <label class="custom-control-label" for="switch1">Show my phone number on my ads</label>
-                                                            <input type="checkbox" class="custom-control-input" id="switch1">
-                                                        </div>
-                                                    </div>
-                                                    <input type="button" name="previous"
-                                                           class="previous action-button-previous" @click="current_step=1" value="Previous"/>
-                                                    <input type="button" name="next" class="next action-button" @click="current_step=3" value="Next Step"/>
-                                                </fieldset>
-
-                                                <fieldset v-if="current_step == 3">
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Images</h2>
-<!--                                                        <div class="radio-group">-->
-<!--                                                            <div class='radio' data-value="credit"><img-->
-<!--                                                                src="https://i.imgur.com/XzOzVHZ.jpg" width="200px"-->
-<!--                                                                height="100px"></div>-->
-<!--                                                            <div class='radio' data-value="paypal"><img-->
-<!--                                                                src="https://i.imgur.com/jXjwZlj.jpg" width="200px"-->
-<!--                                                                height="100px"></div>-->
-<!--                                                            <br>-->
-<!--                                                        </div>-->
-                                                        <label class="pay">Choose images*</label>
-                                                        <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                                                            <vue-upload-multiple-image
-                                                                @upload-success="uploadImageSuccess"
-                                                                @before-remove="beforeRemove"
-                                                                @edit-image="editImage"
-                                                                @data-change="dataChange"
-                                                                :data-images="images"
-                                                                :dropText="'Drag & drop detail images'"
-                                                                :dragText="'Drag & drop  detail images'"
-                                                                :popupText="'Product detail images'"
-                                                                :primaryText="'thumbnail'"
-                                                                :markIsPrimaryText="'Detail Image'"
-                                                                :browseText="'Browse image'"
-                                                                :max-image="5"
-                                                                :showDelete="false"
-                                                                :accept="'image/gif,image/jpeg,image/png,image/bmp,image/jpg'"
-                                                            ></vue-upload-multiple-image>
-                                                        </div>
-
-
-<!--                                                        &lt;!&ndash;                                                        <input type="text"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                                                            name="holdername"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                                                            placeholder=""/>&ndash;&gt;-->
-<!--                                                        <div class="row">-->
-<!--                                                            <div class="col-9"><label class="pay">Card Number*</label>-->
-<!--                                                                <input type="text" name="cardno" placeholder=""/></div>-->
-<!--                                                            <div class="col-3"><label class="pay">CVC*</label> <input-->
-<!--                                                                type="password" name="cvcpwd" placeholder="***"/></div>-->
-<!--                                                        </div>-->
-<!--                                                        <div class="row">-->
-<!--                                                            <div class="col-3"><label class="pay">Expiry Date*</label>-->
-<!--                                                            </div>-->
-<!--                                                            <div class="col-9"><select class="list-dt" id="month"-->
-<!--                                                                                       name="expmonth">-->
-<!--                                                                <option selected>Month</option>-->
-<!--                                                                <option>January</option>-->
-<!--                                                                <option>February</option>-->
-<!--                                                                <option>March</option>-->
-<!--                                                                <option>April</option>-->
-<!--                                                                <option>May</option>-->
-<!--                                                                <option>June</option>-->
-<!--                                                                <option>July</option>-->
-<!--                                                                <option>August</option>-->
-<!--                                                                <option>September</option>-->
-<!--                                                                <option>October</option>-->
-<!--                                                                <option>November</option>-->
-<!--                                                                <option>December</option>-->
-<!--                                                            </select> <select class="list-dt" id="year" name="expyear">-->
-<!--                                                                <option selected>Year</option>-->
-<!--                                                            </select></div>-->
-<!--                                                        </div>-->
-                                                    </div>
-                                                    <input type="button" name="previous"
-                                                           class="previous action-button-previous" @click="current_step=3" value="Previous"/>
-                                                    <input type="button" name="next" class="next action-button" @click="current_step=4" value="Next Step"/>
-                                                </fieldset>
-                                                <fieldset v-if="current_step==4">
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-3"><img
-                                                                src="https://img.icons8.com/color/96/000000/ok--v2.png"
-                                                                class="fit-image"></div>
-                                                        </div>
-                                                        <br><br>
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-7 text-center">
-                                                                <h5>You Have Successfully Signed Up</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
                                             </form>
                                         </div>
                                     </div>
@@ -194,112 +48,42 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!--                    <div class="row">-->
-                    <!--                        <div class="col-12 mt-1 mb-3">-->
-                    <!--                            CHOOSE A CATEGORY-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="row">-->
-                    <!--                        <div class="col-6">-->
-                    <!--                            <div class="list-group" id="list-tab" role="tablist">-->
-
-                    <!--                                <a :class="new_product.level1_category_id === category.id ?'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'"-->
-                    <!--                                   :id="'category-'+category.id"-->
-                    <!--                                   data-toggle="list" :href="'#category-'+category.id+'-sub'" role="tab"-->
-                    <!--                                   :aria-controls="'category-'+category.id+'-sub'"-->
-                    <!--                                   @click="new_product.level1_category_id = category.id"-->
-                    <!--                                   v-for="category in categories">{{category.title}}</a>-->
-
-
-                    <!--&lt;!&ndash;                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>&ndash;&gt;-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-
-                    <!--                        <div class="col-6" v-if="new_product.level1_category_id > 0">-->
-                    <!--                            <div class="list-group" id="list-tab2" role="tablist">-->
-                    <!--                                <a :class="new_product.level2_category_id === sub_category.id ?'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'"-->
-                    <!--                                   :id="'category-'+sub_category.id"-->
-                    <!--                                   data-toggle="list" :href="'#category-'+sub_category.id+'-sub'" role="tab"-->
-                    <!--                                   :aria-controls="'category-'+sub_category.id+'-sub'"-->
-                    <!--                                   @click="new_product.level2_category_id = sub_category.id"-->
-                    <!--                                   v-for="sub_category in categories.filter(category_ => {category_.id===new_product.level1_category_id})[0].sub_categories">{{sub_category.title}}</a>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-
-
-                    <!--&lt;!&ndash;                        <div class="col-6">&ndash;&gt;-->
-                    <!--&lt;!&ndash;                            <div class="tab-content" id="nav-tabContent">&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-                    <!--                    </div>-->
-
                 </div>
-                <!--                <div class="modal-footer">-->
-                <!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-                <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
-                <!--                </div>-->
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import {mapState} from 'vuex';
-import VueUploadMultipleImage from 'vue-upload-multiple-image'
+import {mapActions, mapState} from 'vuex';
+import ProductCategoryStep from './product-category-step';
+import ProductDetailStep from './product-detail-step';
+import ProductImagesStep from './product-images-step';
+import ProductAddressStep from './product-address-step';
 
 export default {
-    data(){
-        return {
-        current_step:1,
-            images:[
-                // {
-                //     path: 'http://example.com/image.jpg',
-                //     caption: 'caption to display. receive', // Optional
-                // }
-            ]
-
-        }
+    data() {
+        return {}
     },
-    methods:{
-        uploadImageSuccess(formData, index, fileList) {
-            console.log('data', formData, index, fileList)
-            // Upload image api
-            // axios.post('http://your-url-upload', formData).then(response => {
-            //   console.log(response)
-            // })
+    methods: {
+        wizardHeaderClass(step_number) {
+            return (this.new_product.current_step >= step_number ? 'active' : '');
         },
-        beforeRemove (index, done, fileList) {
-            console.log('index', index, fileList)
-            var r = confirm("remove image")
-            if (r == true) {
-                done()
-            } else {
-            }
-        },
-        editImage (formData, index, fileList) {
-            console.log('edit data', formData, index, fileList)
-        },
-        dataChange(){
-
-        },
-        moveToNextStep(){
-
-        },
+        ...mapActions(
+            [
+                'wizardMoveNext',
+                'wizardMovePrevious'
+            ]
+        )
     },
     mounted() {
-        this.moveToNextStep();
+        console.log(this.$store);
     },
     components: {
-        VueUploadMultipleImage,
+        ProductCategoryStep,
+        ProductDetailStep,
+        ProductImagesStep,
+        ProductAddressStep,
     },
     computed: {
         ...mapState({
@@ -492,22 +276,22 @@ select.list-dt:focus {
     position: relative
 }
 
-#progressbar #account:before {
+#progressbar #add-product-category-step:before {
     font-family: FontAwesome;
     content: "\f023"
 }
 
-#progressbar #personal:before {
+#progressbar #add-product-detail-step:before {
     font-family: FontAwesome;
     content: "\f007"
 }
 
-#progressbar #payment:before {
+#progressbar #add-product-images-step:before {
     font-family: FontAwesome;
     content: "\f09d"
 }
 
-#progressbar #confirm:before {
+#progressbar #add-product-address-step:before {
     font-family: FontAwesome;
     content: "\f00c"
 }
@@ -570,7 +354,8 @@ select.list-dt:focus {
     width: 100%;
     object-fit: cover
 }
-.disabled{
+
+.disabled {
     cursor: not-allowed;
 }
 </style>

@@ -18,8 +18,13 @@ Route::get('/home', function () {
     return view('user.index');
 });
 
+/** Categories Routes */
 Route::get('/categories', 'CategoryController@getCategories');
 Route::post('/all-categories', 'CategoryController@getCategories');
+
+
+/** Product Routes*/
+Route::post('/add-product', 'ProductController@store');
 
 
 
