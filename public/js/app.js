@@ -52094,10 +52094,12 @@ var actions = {
               return axios({
                 url: '/add-new-product',
                 method: 'POST',
-                data: state.new_product
-              }).then(function (resp) {//commit('HIDE_LOADER', null, {root: true});
+                data: state.product.new_product
+              }).then(function (resp) {
+                // commit('HIDE_LOADER', null, {root: true});
+                commit('ADD_PRODUCT', resp); // console.log(resp);
               })["catch"](function (err) {
-                console.log(err); //commit('HIDE_LOADER', null, {root: true});
+                console.log(err); // commit('HIDE_LOADER', null, {root: true});
               });
 
             case 3:
@@ -52141,7 +52143,14 @@ var mutations = {
   },
   MOVE_TO_PREVIOUS_WIZARD_STEP: function MOVE_TO_PREVIOUS_WIZARD_STEP(state) {
     return --state.product.new_product.current_step;
+  },
+  //ADD_PRODUCT:(state, newProduct)=> ( state.product.new_product = newProduct),
+  ADD_PRODUCT: function ADD_PRODUCT(state, newProduct) {
+    return state.product.new_product = newProduct;
   }
+  /*  HIDE_LOADER(state){
+     },*/
+
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
 
@@ -52237,8 +52246,8 @@ var module_state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\wamp\www\pets-shop\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\wamp\www\pets-shop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\git-local\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\git-local\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

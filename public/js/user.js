@@ -560,6 +560,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "product-address-step",
@@ -789,6 +796,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({
     uploadImageSuccess: function uploadImageSuccess(formData, index, fileList) {
+      this.new_product.images = formData;
       console.log('data', formData, index, fileList); // Upload image api
       // axios.post('http://your-url-upload', formData).then(response => {
       //   console.log(response)
@@ -864,7 +872,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.list-group-item {\n    position: relative;\n    display: block;\n    padding: 1rem 1rem;\n    text-decoration: none;\n    background-color: #fff;\n    border: 1px solid rgba(0, 0, 0, .125);\n    color: rgba(0, 47, 52, .64);\n}\n.list-group-item.active {\n    z-index: 2;\n    color: #fff;\n    background-color: rgba(0, 47, 52, 0.30);\n    border: 1px solid rgba(0, 47, 52, 0.30);\n}\n* {\n    margin: 0;\n    padding: 0\n}\nhtml {\n    height: 100%\n}\n#grad1 {\n    background-color: #9C27B0;\n    background-image: linear-gradient(120deg, #FF4081, #81D4FA)\n}\n#msform {\n    text-align: center;\n    position: relative;\n    margin-top: 20px\n}\n#msform fieldset .form-card {\n    background: white;\n    border: 0 none;\n    border-radius: 0px;\n    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);\n    padding: 20px 40px 30px 40px;\n    box-sizing: border-box;\n    width: 94%;\n    margin: 0 3% 20px 3%;\n    position: relative\n}\n#msform fieldset {\n    background: white;\n    border: 0 none;\n    border-radius: 0.5rem;\n    box-sizing: border-box;\n    width: 100%;\n    margin: 0;\n    padding-bottom: 20px;\n    position: relative\n}\n#msform fieldset:not(:first-of-type) {\n    display: none\n}\n#msform fieldset .form-card {\n    text-align: left;\n    color: #9E9E9E\n}\n#msform input,\n#msform select,\n#msform textarea {\n    padding: 0px 8px 4px 8px;\n    border: none;\n    border-bottom: 1px solid #ccc;\n    border-radius: 0px;\n    margin-bottom: 25px;\n    margin-top: 2px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: montserrat;\n    color: #2C3E50;\n    font-size: 16px;\n    letter-spacing: 1px\n}\n#msform input:focus,\n#msform textarea:focus {\n    box-shadow: none !important;\n    border: none;\n    font-weight: bold;\n    border-bottom: 2px solid skyblue;\n    outline-width: 0\n}\n#msform .action-button {\n    width: 100px;\n    background: skyblue;\n    font-weight: bold;\n    color: white;\n    border: 0 none;\n    border-radius: 0px;\n    /*cursor: pointer;*/\n    padding: 10px 5px;\n    margin: 10px 5px\n}\n#msform .action-button:hover,\n#msform .action-button:focus {\n    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue\n}\n#msform .action-button-previous {\n    width: 100px;\n    background: #616161;\n    font-weight: bold;\n    color: white;\n    border: 0 none;\n    border-radius: 0px;\n    cursor: pointer;\n    padding: 10px 5px;\n    margin: 10px 5px\n}\n#msform .action-button-previous:hover,\n#msform .action-button-previous:focus {\n    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161\n}\nselect.list-dt {\n    border: none;\n    outline: 0;\n    border-bottom: 1px solid #ccc;\n    padding: 2px 5px 3px 5px;\n    margin: 2px\n}\nselect.list-dt:focus {\n    border-bottom: 2px solid skyblue\n}\n.card {\n    z-index: 0;\n    border: none;\n    border-radius: 0.5rem;\n    position: relative\n}\n.fs-title {\n    font-size: 25px;\n    color: #2C3E50;\n    margin-bottom: 10px;\n    font-weight: bold;\n    text-align: left\n}\n#progressbar {\n    margin-bottom: 30px;\n    overflow: hidden;\n    color: lightgrey\n}\n#progressbar .active {\n    color: #000000\n}\n#progressbar li {\n    list-style-type: none;\n    font-size: 12px;\n    width: 25%;\n    float: left;\n    position: relative\n}\n#progressbar #add-product-category-step:before {\n    font-family: FontAwesome;\n    content: \"\\F023\"\n}\n#progressbar #add-product-detail-step:before {\n    font-family: FontAwesome;\n    content: \"\\F007\"\n}\n#progressbar #add-product-images-step:before {\n    font-family: FontAwesome;\n    content: \"\\F09D\"\n}\n#progressbar #add-product-address-step:before {\n    font-family: FontAwesome;\n    content: \"\\F00C\"\n}\n#progressbar li:before {\n    width: 50px;\n    height: 50px;\n    line-height: 45px;\n    display: block;\n    font-size: 18px;\n    color: #ffffff;\n    background: lightgray;\n    border-radius: 50%;\n    margin: 0 auto 10px auto;\n    padding: 2px\n}\n#progressbar li:after {\n    content: '';\n    width: 100%;\n    height: 2px;\n    background: lightgray;\n    position: absolute;\n    left: 0;\n    top: 25px;\n    z-index: -1\n}\n#progressbar li.active:before,\n#progressbar li.active:after {\n    background: skyblue\n}\n.radio-group {\n    position: relative;\n    margin-bottom: 25px\n}\n.radio {\n    display: inline-block;\n    width: 204px;\n    height: 104px;\n    border-radius: 0;\n    background: lightblue;\n    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);\n    box-sizing: border-box;\n    cursor: pointer;\n    margin: 8px 2px\n}\n.radio:hover {\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)\n}\n.radio.selected {\n    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)\n}\n.fit-image {\n    width: 100%;\n    -o-object-fit: cover;\n       object-fit: cover\n}\n.disabled {\n    cursor: not-allowed;\n}\n", ""]);
+exports.push([module.i, "\n.list-group-item {\r\n    position: relative;\r\n    display: block;\r\n    padding: 1rem 1rem;\r\n    text-decoration: none;\r\n    background-color: #fff;\r\n    border: 1px solid rgba(0, 0, 0, .125);\r\n    color: rgba(0, 47, 52, .64);\n}\n.list-group-item.active {\r\n    z-index: 2;\r\n    color: #fff;\r\n    background-color: rgba(0, 47, 52, 0.30);\r\n    border: 1px solid rgba(0, 47, 52, 0.30);\n}\n* {\r\n    margin: 0;\r\n    padding: 0\n}\nhtml {\r\n    height: 100%\n}\n#grad1 {\r\n    background-color: #9C27B0;\r\n    background-image: linear-gradient(120deg, #FF4081, #81D4FA)\n}\n#msform {\r\n    text-align: center;\r\n    position: relative;\r\n    margin-top: 20px\n}\n#msform fieldset .form-card {\r\n    background: white;\r\n    border: 0 none;\r\n    border-radius: 0px;\r\n    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);\r\n    padding: 20px 40px 30px 40px;\r\n    box-sizing: border-box;\r\n    width: 94%;\r\n    margin: 0 3% 20px 3%;\r\n    position: relative\n}\n#msform fieldset {\r\n    background: white;\r\n    border: 0 none;\r\n    border-radius: 0.5rem;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    margin: 0;\r\n    padding-bottom: 20px;\r\n    position: relative\n}\n#msform fieldset:not(:first-of-type) {\r\n    display: none\n}\n#msform fieldset .form-card {\r\n    text-align: left;\r\n    color: #9E9E9E\n}\n#msform input,\r\n#msform select,\r\n#msform textarea {\r\n    padding: 0px 8px 4px 8px;\r\n    border: none;\r\n    border-bottom: 1px solid #ccc;\r\n    border-radius: 0px;\r\n    margin-bottom: 25px;\r\n    margin-top: 2px;\r\n    width: 100%;\r\n    box-sizing: border-box;\r\n    font-family: montserrat;\r\n    color: #2C3E50;\r\n    font-size: 16px;\r\n    letter-spacing: 1px\n}\n#msform input:focus,\r\n#msform textarea:focus {\r\n    box-shadow: none !important;\r\n    border: none;\r\n    font-weight: bold;\r\n    border-bottom: 2px solid skyblue;\r\n    outline-width: 0\n}\n#msform .action-button {\r\n    width: 100px;\r\n    background: skyblue;\r\n    font-weight: bold;\r\n    color: white;\r\n    border: 0 none;\r\n    border-radius: 0px;\r\n    /*cursor: pointer;*/\r\n    padding: 10px 5px;\r\n    margin: 10px 5px\n}\n#msform .action-button:hover,\r\n#msform .action-button:focus {\r\n    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue\n}\n#msform .action-button-previous {\r\n    width: 100px;\r\n    background: #616161;\r\n    font-weight: bold;\r\n    color: white;\r\n    border: 0 none;\r\n    border-radius: 0px;\r\n    cursor: pointer;\r\n    padding: 10px 5px;\r\n    margin: 10px 5px\n}\n#msform .action-button-previous:hover,\r\n#msform .action-button-previous:focus {\r\n    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161\n}\nselect.list-dt {\r\n    border: none;\r\n    outline: 0;\r\n    border-bottom: 1px solid #ccc;\r\n    padding: 2px 5px 3px 5px;\r\n    margin: 2px\n}\nselect.list-dt:focus {\r\n    border-bottom: 2px solid skyblue\n}\n.card {\r\n    z-index: 0;\r\n    border: none;\r\n    border-radius: 0.5rem;\r\n    position: relative\n}\n.fs-title {\r\n    font-size: 25px;\r\n    color: #2C3E50;\r\n    margin-bottom: 10px;\r\n    font-weight: bold;\r\n    text-align: left\n}\n#progressbar {\r\n    margin-bottom: 30px;\r\n    overflow: hidden;\r\n    color: lightgrey\n}\n#progressbar .active {\r\n    color: #000000\n}\n#progressbar li {\r\n    list-style-type: none;\r\n    font-size: 12px;\r\n    width: 25%;\r\n    float: left;\r\n    position: relative\n}\n#progressbar #add-product-category-step:before {\r\n    font-family: FontAwesome;\r\n    content: \"\\F023\"\n}\n#progressbar #add-product-detail-step:before {\r\n    font-family: FontAwesome;\r\n    content: \"\\F007\"\n}\n#progressbar #add-product-images-step:before {\r\n    font-family: FontAwesome;\r\n    content: \"\\F09D\"\n}\n#progressbar #add-product-address-step:before {\r\n    font-family: FontAwesome;\r\n    content: \"\\F00C\"\n}\n#progressbar li:before {\r\n    width: 50px;\r\n    height: 50px;\r\n    line-height: 45px;\r\n    display: block;\r\n    font-size: 18px;\r\n    color: #ffffff;\r\n    background: lightgray;\r\n    border-radius: 50%;\r\n    margin: 0 auto 10px auto;\r\n    padding: 2px\n}\n#progressbar li:after {\r\n    content: '';\r\n    width: 100%;\r\n    height: 2px;\r\n    background: lightgray;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 25px;\r\n    z-index: -1\n}\n#progressbar li.active:before,\r\n#progressbar li.active:after {\r\n    background: skyblue\n}\n.radio-group {\r\n    position: relative;\r\n    margin-bottom: 25px\n}\n.radio {\r\n    display: inline-block;\r\n    width: 204px;\r\n    height: 104px;\r\n    border-radius: 0;\r\n    background: lightblue;\r\n    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);\r\n    box-sizing: border-box;\r\n    cursor: pointer;\r\n    margin: 8px 2px\n}\n.radio:hover {\r\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)\n}\n.radio.selected {\r\n    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)\n}\n.fit-image {\r\n    width: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover\n}\n.disabled {\r\n    cursor: not-allowed;\n}\r\n", ""]);
 
 // exports
 
@@ -1580,7 +1588,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "menu-close" }, [
-      _vm._v("\n        menu "),
+      _vm._v("\r\n        menu "),
       _c("i", { staticClass: "las la-arrow-left" })
     ])
   },
@@ -2027,8 +2035,10 @@ var render = function() {
           }
         },
         [
-          _c("option", { attrs: { selected: "", value: "0" } }, [
-            _vm._v("Choose State")
+          _c("option", { attrs: { value: "0" } }, [_vm._v("Choose State")]),
+          _vm._v(" "),
+          _c("option", { attrs: { selected: "", value: "Punjab" } }, [
+            _vm._v("Punjab")
           ])
         ]
       ),
@@ -2064,8 +2074,16 @@ var render = function() {
           }
         },
         [
-          _c("option", { attrs: { selected: "", value: "0" } }, [
-            _vm._v("Choose City")
+          _c("option", { attrs: { value: "0" } }, [_vm._v("Choose City")]),
+          _vm._v(" "),
+          _c("option", { attrs: { selected: "", value: "Faisalabad" } }, [
+            _vm._v("Faisalabad")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "Lahore" } }, [_vm._v("Lahore")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "Gujranwala" } }, [
+            _vm._v("Gujranwala")
           ])
         ]
       ),
@@ -2469,7 +2487,6 @@ var render = function() {
         [
           _c("vue-upload-multiple-image", {
             attrs: {
-              "data-images": _vm.new_product.images,
               dropText: "Drag & drop detail images",
               dragText: "Drag & drop  detail images",
               popupText: "Product detail images",

@@ -4,12 +4,12 @@
             <h2 class="fs-title">Images</h2>
             <label class="pay">Choose images*</label>
             <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
+<!--                :data-images="new_product.images"-->
                 <vue-upload-multiple-image
                     @upload-success="uploadImageSuccess"
                     @before-remove="beforeRemove"
                     @edit-image="editImage"
                     @data-change="dataChange"
-                    :data-images="new_product.images"
                     :dropText="'Drag & drop detail images'"
                     :dragText="'Drag & drop  detail images'"
                     :popupText="'Product detail images'"
@@ -46,6 +46,7 @@ export default {
     methods: {
 
         uploadImageSuccess(formData, index, fileList) {
+            this.new_product.images = formData;
             console.log('data', formData, index, fileList)
             // Upload image api
             // axios.post('http://your-url-upload', formData).then(response => {

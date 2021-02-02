@@ -14,6 +14,13 @@ let mutations = {
     MOVE_TO_PREVIOUS_WIZARD_STEP(state){
         return --state.product.new_product.current_step;
     },
+    //ADD_PRODUCT:(state, newProduct)=> ( state.product.new_product = newProduct),
+    ADD_PRODUCT(state, newProduct){
+        return state.product.new_product = newProduct;
+    }
+  /*  HIDE_LOADER(state){
+
+    },*/
 };
 
 export default mutations;
