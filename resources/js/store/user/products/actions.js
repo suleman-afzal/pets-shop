@@ -9,16 +9,20 @@ let actions ={
     },
 
     addNewProduct: async ({state, commit}) => {
+        //console.log(state.product.new_product);
         //commit('SHOW_LOADER', null, {root: true});
         await axios({
             url: '/add-new-product',
             method: 'POST',
-            data:state.new_product
+            data:state.product.new_product,
+
         }).then((resp) => {
-            //commit('HIDE_LOADER', null, {root: true});
+           // commit('HIDE_LOADER', null, {root: true});
+            commit('ADD_PRODUCT',resp);
+           // console.log(resp);
         }).catch((err) => {
             console.log(err);
-            //commit('HIDE_LOADER', null, {root: true});
+           // commit('HIDE_LOADER', null, {root: true});
         });
     },
 };

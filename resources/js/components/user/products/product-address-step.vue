@@ -6,11 +6,18 @@
             <h2 class="fs-title">Location</h2>
 
             <select class="form-control mt-3 pt-2" v-model="new_product.state">
-                <option selected value="0">Choose State</option>
+                <option value="0">Choose State</option>
+                <option selected value="Punjab">Punjab</option>
+
             </select>
 
-            <select class="form-control mt-3 pt-2" v-model="new_product.city">
-                <option selected value="0">Choose City</option>
+            <select class="form-control mt-3 pt-2" v-model="new_product.city" >
+               <option value="0">Choose City</option>
+                <option selected value="Faisalabad">Faisalabad</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Gujranwala">Gujranwala</option>
+
+
             </select>
 
             <input type="text" name="phone" v-model="new_product.phone" placeholder="Phone"/>
