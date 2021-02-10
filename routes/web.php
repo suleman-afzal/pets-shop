@@ -25,6 +25,7 @@ Route::post('/all-categories', 'CategoryController@getCategories');
 
 /** Product Routes*/
 Route::post('/add-product', 'ProductController@store');
+Route::get('/home-data', 'ProductController@homePageProducts');
 
 
 
