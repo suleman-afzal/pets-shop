@@ -2,19 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Category;
+use App\Http\Resources\HomePageDataResource;
 use App\Product;
 use App\ProductDetail;
 use App\ProductImage;
+use Illuminate\Http\Request;
+
 //use App\Image;
 
 class ProductController extends Controller
 {
-    public function store(Request $request){
-       //dd($request->all());
+    public function homePageProducts()
+    {
+        $main_categories = Category::where([['status', 1], ['parent_id', 0]])
+            ->with('subCategories.subCategories')
+            ->orderBy('piriority')->get();
+
+        $featured_products = Product::where([['is_featured', 1], ['in_stock', '>', 0]])
+            ->orderBy('id', 'DESC')->limit(10)
+            ->get();
+
+        return new HomePageDataResource(
+            collect(['main_categories' => $main_categories, 'featured_products' => $featured_products])
+        );
+    }
+
+
+    public function store(Request $request)
+    {
+        dump($request->hasFile('file'));
+        dd($request->all());
         $newProduct = new Product;
         $newProduct->title = $request->input('title');
-        $newProduct->slug = $newProduct->title.'-'.time();
+        $newProduct->slug = $newProduct->title . '-' . time();
         //$newProduct->slug = str_slug($newProduct->title,'-').'-'.time();
         $newProduct->category_id = $request->input('level2_category_id');
         $newProduct->user_id = 1;
@@ -61,16 +82,15 @@ class ProductController extends Controller
 //            'images' => 'required',
 //            'images.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
 //        ]);
-        if($request->hasFile('images')){
-            foreach($request->file('images') as $file)
-            {
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
                 $name = $file->getClientOriginalName();
-                $file->move(public_path().'/uploads/',$name);
+                $file->move(public_path() . '/uploads/', $name);
                 $imgData[] = $name;
             }
 
             $productImages->image = json_encode($imgData);
-        }else{
+        } else {
             $productImages->image = 'nothing';
         };
         $productImages->save();
