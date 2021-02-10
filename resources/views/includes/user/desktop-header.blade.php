@@ -50,7 +50,7 @@
                                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="las la-user-circle"></i> <span>Setting</span> <i class="las la-angle-down"></i></button>
 
                                     <ul class="dropdown-menu height-122px" aria-labelledby="dropdownMenuButton">
-                                        <li><a href="my-account.html">My Account</a></li>
+                                        <li><a href="/my-account">My Account</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         <li><a href="login.html">Sign In</a></li>
                                     </ul>
