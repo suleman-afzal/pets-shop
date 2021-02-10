@@ -46,3 +46,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //add new product
 Route::post('/add-new-product','ProductController@store');
+
+//account page
+Route::get('/my-account', 'AccountController@index');
+
+//store account
+Route::post('/my-account','AccountController@store');
+
+Route::get('/my-account-information','AccountController@profileData');
+//Change Password
+Route::post('/my-account-password' , 'EditPasswordController@index');
+//Edit Address
+Route::post('/my-account-address','AccountController@address');
+
