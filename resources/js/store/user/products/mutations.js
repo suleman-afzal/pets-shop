@@ -17,6 +17,11 @@ let mutations = {
     //ADD_PRODUCT:(state, newProduct)=> ( state.product.new_product = newProduct),
     ADD_PRODUCT(state, newProduct){
         return state.product.new_product = newProduct;
+    },
+    CATEGORIES(state, payload){
+        //getting categories
+        state.product.home_data.main_categories = payload.data.data.main_categories;
+         // console.warn( payload.data.data.main_categories[1].products[0]);
     }
   /*  HIDE_LOADER(state){
 

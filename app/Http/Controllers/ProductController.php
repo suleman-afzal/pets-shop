@@ -19,11 +19,12 @@ class ProductController extends Controller
             ->with('subCategories.subCategories')
             ->orderBy('piriority')->get();
 
+
         $featured_products = Product::where([['is_featured', 1], ['in_stock', '>', 0]])
             ->orderBy('id', 'DESC')->limit(10)
             ->get();
 
-        return new HomePageDataResource(
+        return new  HomePageDataResource(
             collect(['main_categories' => $main_categories, 'featured_products' => $featured_products])
         );
     }

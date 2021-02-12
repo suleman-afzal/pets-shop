@@ -1,0 +1,1 @@
+<categories-collection></categories-collection>
