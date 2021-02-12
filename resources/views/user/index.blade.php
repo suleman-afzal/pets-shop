@@ -5,8 +5,8 @@
 
 <slider></slider>
 {{--    @include('includes.user.slider')--}}
-
-    @include('includes.user.thumb-category-area')
+{{--    @include('includes.user.thumb-category-area')--}}
+<categories-collection></categories-collection>
 
 
     @include('includes.user.banner-area')

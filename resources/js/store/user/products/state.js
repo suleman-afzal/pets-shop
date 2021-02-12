@@ -32,11 +32,26 @@ export const init_new_product_errors = () => {
         level3_category_id: null,
     };
 };
+export const init_home_data = () => {
+    return{
+        main_categories : [],
+        current_main_category : 0,
+
+    }
+};
+
+// export const init_current_main_category =()=>{
+//   return{
+//       category_products : [],
+//   }
+// };
 
 
 let state = {
     new_product:init_new_product(),
     new_product_errors:init_new_product_errors(),
+    home_data : init_home_data(),
+    // current_main_category: init_current_main_category(),
 };
 
 export default state;

@@ -19,7 +19,7 @@ class HomePageMainCategories extends JsonResource
             $this->subCategories->pluck('id')->toArray(),
             $this->subCategories->pluck('id')->toArray()
         );
-
+//        dd($category_ids);
         array_push($category_ids, $this->id);
 
         $products = Product::whereIn('category_id', $category_ids)

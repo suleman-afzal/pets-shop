@@ -7,7 +7,7 @@
 
                     <!--Level One Categories Start-->
                     <div class="list-group col-6 float-left" id="list-tab" role="tablist">
-                        <a :class="new_product.level1_category_id === category.id ?'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'"
+                        <a :class="new_product.level1_category_id === category.id ?'list-group-item list-group-item-actions active' : 'list-group-item list-group-item-actions'"
                            :id="'category-'+category.id"
                            data-toggle="list"
                            :href="'#category-'+category.id+'-sub'" role="tab"
@@ -21,7 +21,7 @@
                     <!--Level Two Categories Start-->
                     <div class="list-group col-6" id="list-tab2" role="tablist"
                          v-if="new_product.level1_category_id > 0">
-                        <a :class="new_product.level2_category_id === sub_category.id ?'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'"
+                        <a :class="new_product.level2_category_id === sub_category.id ?'list-group-item list-group-item-actions active' : 'list-group-item list-group-item-actions'"
                            :id="'category-'+sub_category.id"
                            data-toggle="list"
                            :href="'#category-'+sub_category.id+'-sub'"

@@ -25,6 +25,18 @@ let actions ={
            // commit('HIDE_LOADER', null, {root: true});
         });
     },
+    homeData: async ({commit, state})=>{
+        await axios({
+            url:'/home-data',
+            method: 'GET'
+        }).then((resp)=>{
+            // console.warn(resp.data.data.main_categories);
+            commit('CATEGORIES',resp);
+        }).catch((err)=>{
+            console.error(err);
+        });
+},
+
 };
 
 export default actions;
