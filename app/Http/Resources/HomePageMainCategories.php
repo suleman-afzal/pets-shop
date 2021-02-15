@@ -15,12 +15,13 @@ class HomePageMainCategories extends JsonResource
      */
     public function toArray($request)
     {
+
         $category_ids = array_merge(
             $this->subCategories->pluck('id')->toArray(),
             $this->subCategories->pluck('id')->toArray()
         );
-//        dd($category_ids);
         array_push($category_ids, $this->id);
+//        dd($this->id);
 
         $products = Product::whereIn('category_id', $category_ids)
             ->orderBy('created_at', 'DESC')->limit(10)->get();

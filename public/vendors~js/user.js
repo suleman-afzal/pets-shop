@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~js/user"],{
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/swiper/dist/css/swiper.css":
 /*!*********************************************************************************************************************************!*\

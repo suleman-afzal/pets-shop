@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"0":"vendors~js/user","js/user":"js/user","js/auth":"js/auth"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"js/auth":"js/auth","vendors~js/user":"vendors~js/user","js/user":"js/user"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -51825,25 +51825,25 @@ Vue.component('forgot-password', function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 Vue.component('slider', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/sliders/slider.vue */ "./resources/js/components/user/sliders/slider.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/sliders/slider.vue */ "./resources/js/components/user/sliders/slider.vue"));
 });
 Vue.component('breadcrumb', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/breadcrumbs/breadcrumb.vue */ "./resources/js/components/user/breadcrumbs/breadcrumb.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/breadcrumbs/breadcrumb.vue */ "./resources/js/components/user/breadcrumbs/breadcrumb.vue"));
 });
 Vue.component('desktopNavbar', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/categories/desktopNavbar.vue */ "./resources/js/components/user/categories/desktopNavbar.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/categories/desktopNavbar.vue */ "./resources/js/components/user/categories/desktopNavbar.vue"));
 });
 Vue.component('mobileNavbar', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/categories/mobileNavbar.vue */ "./resources/js/components/user/categories/mobileNavbar.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/categories/mobileNavbar.vue */ "./resources/js/components/user/categories/mobileNavbar.vue"));
 });
 Vue.component('addProduct', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/products/addProduct.vue */ "./resources/js/components/user/products/addProduct.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/products/addProduct.vue */ "./resources/js/components/user/products/addProduct.vue"));
 });
 Vue.component('account-information', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/my-account/account-information.vue */ "./resources/js/components/user/my-account/account-information.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/my-account/account-information.vue */ "./resources/js/components/user/my-account/account-information.vue"));
 });
 Vue.component('categories-collection', function () {
-  return Promise.all(/*! import() | js/user */[__webpack_require__.e(0), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/main-categories/categories-collection */ "./resources/js/components/user/main-categories/categories-collection.vue"));
+  return Promise.all(/*! import() | js/user */[__webpack_require__.e("vendors~js/user"), __webpack_require__.e("js/user")]).then(__webpack_require__.bind(null, /*! ./user/main-categories/categories-collection */ "./resources/js/components/user/main-categories/categories-collection.vue"));
 });
 
 /***/ }),
