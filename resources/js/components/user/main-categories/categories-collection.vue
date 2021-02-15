@@ -24,68 +24,7 @@
                             </ul>
                         </div>
 
-<!--                        <div class="category-tab-block" v-if="home_data.current_main_category >= 0">-->
 
-<!--                            <div class="category-tab">-->
-<!--                                &lt;!&ndash; Tab Content Start &ndash;&gt;-->
-<!--                                <div class="tab-content">-->
-<!--                                    &lt;!&ndash; 1st tab &ndash;&gt;-->
-<!--                                    <div id="tab-1" class="tab-pane active">-->
-<!--                                        &lt;!&ndash; Tab Slider Start &ndash;&gt;-->
-<!--                                        <div class="arrival-slider slider-nav-style-1">-->
-
-<!--                                            <div class="arrval-slider-item" >-->
-<!--                                                <article class="list-product text-left"  v-for="(product,index ) in home_data.main_categories[current_main_category].products[0]" :key="current_main_category.id">-->
-<!--                                                    <div class="product-inner" >-->
-<!--                                                        <div class="img-block">-->
-<!--                                                            <a href="single-product.html" class="thumbnail">-->
-<!--                                                                <img class="first-img" src="assets/images/product-image/1.jpg" alt="" />-->
-<!--                                                                <img class="second-img" src="assets/images/product-image/2.jpg" alt="" />-->
-<!--                                                            </a>-->
-<!--                                                            <div class="add-to-link">-->
-<!--                                                                <ul>-->
-<!--                                                                    <li>-->
-<!--                                                                        <a href="wishlist.html" title="Add to Wishlist"><i class="las la-heart"></i></a>-->
-<!--                                                                    </li>-->
-<!--                                                                    <li>-->
-<!--                                                                        <a href="compare.html" title="Add to compare"><i class="las la-sync"></i></a>-->
-<!--                                                                    </li>-->
-<!--                                                                    <li>-->
-<!--                                                                        <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-toggle="modal" data-target="#exampleModal">-->
-<!--                                                                            <i class="las la-search"></i>-->
-<!--                                                                        </a>-->
-<!--                                                                    </li>-->
-<!--                                                                </ul>-->
-<!--                                                            </div>-->
-<!--                                                            <ul class="product-flag">-->
-<!--                                                                <li class="new">New</li>-->
-<!--                                                                <li class="new discount">-5%</li>-->
-<!--                                                            </ul>-->
-<!--                                                        </div>-->
-<!--                                                        <div class="product-decs" >-->
-<!--                                                            <h2><a href="single-product.html" class="product-link">{{product.title}}</a></h2>-->
-<!--                                                            <div class="pricing-meta">-->
-<!--                                                                <ul>-->
-<!--                                                                    <li class="old-price">$34.90</li>-->
-<!--                                                                    <li class="current-price">$30.00</li>-->
-<!--                                                                </ul>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                        <div class="cart-btn">-->
-<!--                                                            <a href="#" class="add-to-curt" title="Add to cart"><i class="las la-baby-carriage"></i></a>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </article>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; Tab Slider End &ndash;&gt;-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; 1st tab &ndash;&gt;-->
-
-<!--                                </div>-->
-<!--                                &lt;!&ndash; Tab Content End &ndash;&gt;-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                 </div>
             </div>
