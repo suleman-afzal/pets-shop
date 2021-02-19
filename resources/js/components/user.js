@@ -5,3 +5,7 @@ Vue.component('mobileNavbar',() => import('./user/categories/mobileNavbar.vue' /
 Vue.component('addProduct',() => import('./user/products/addProduct.vue' /* webpackChunkName: "js/user" */));
 Vue.component('account-information',() => import('./user/my-account/account-information.vue' /* webpackChunkName: "js/user" */));
 Vue.component('categories-collection',()=>import('./user/main-categories/categories-collection' /* webpackChunkName: "js/user" */));
+Vue.component('featured_products',()=>import('./user/featured_products/featured_products.vue'/* webpackChunkName: "js/user" */));
+Vue.component('vue_slicker',()=>import('./user/featured_products/vue_slicker'));
+Vue.component('homepage_featured_products',()=>import('./user/featured_products/homepage_featured_products'/* webpackChunkName: "js/user" */));
+Vue.component('main_categories',()=>import('./user/main-categories/main-categories'/* webpackChunkName: "js/user" */));

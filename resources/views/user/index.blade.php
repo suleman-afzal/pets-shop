@@ -3,15 +3,17 @@
 @endpush
 @section('content')
 
-<slider></slider>
+    <slider></slider>
 {{--    @include('includes.user.slider')--}}
 {{--    @include('includes.user.thumb-category-area')--}}
-<categories-collection></categories-collection>
-
+{{--    <categories-collection></categories-collection>--}}
+    <main_categories></main_categories>
 
     @include('includes.user.banner-area')
-
-    @include('includes.user.feature-products')
+    <featured_products></featured_products>
+{{--<homepage_featured_products></homepage_featured_products>--}}
+{{--<vue_slicker></vue_slicker>--}}
+{{--    @include('includes.user.feature-products')--}}
 
 
     <!-- Banner Area Start -->

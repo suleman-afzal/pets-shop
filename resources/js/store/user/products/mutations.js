@@ -21,7 +21,11 @@ let mutations = {
     CATEGORIES(state, payload){
         //getting categories
         state.product.home_data.main_categories = payload.data.data.main_categories;
-         // console.warn( payload.data.data.main_categories[1].products[0]);
+
+    },
+    FEATURED_ITEMS(state, loadData){
+        // console.warn( loadData.data.data.feature_products[0].title);
+        state.product.featured_products = loadData.data.data.feature_products;
     }
   /*  HIDE_LOADER(state){
 

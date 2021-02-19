@@ -36,6 +36,17 @@ let actions ={
             console.error(err);
         });
 },
+    featuredItems: async ({commit, state})=>{
+        await axios({
+            url:'/home-data',
+            method: 'GET'
+        }).then((resp)=>{
+            // console.warn(resp.data);
+            commit('FEATURED_ITEMS',resp);
+        }).catch((err)=>{
+            console.error(err);
+        });
+    },
 
 };
 
