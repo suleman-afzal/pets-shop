@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-title">
+                    <div class="section-title"><br>
                         <h2>OUR CATEGORIES</h2>
                         <p>Browse the collection of our tab products.</p>
                     </div>
