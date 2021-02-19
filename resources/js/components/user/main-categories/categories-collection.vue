@@ -35,43 +35,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ">
-                    <!-- Shop Top Area Start -->
-<!--                    <div class="shop-top-bar">-->
-<!--                        <div class="row align-items-center">-->
-<!--                            <div class="col-12 col-md-6 mb-3 mb-md-0">-->
-<!--                                <nav class="shop-grid-nav">-->
-<!--                                    <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist">-->
-<!--                                        <li class="nav-item">-->
-<!--                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#shop-1" role="tab" aria-selected="true">-->
-<!--                                                <i class="las la-table"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        <li class="nav-item mr-0">-->
-<!--                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#shop-2" role="tab" aria-selected="false"><i class="las la-list"></i></a>-->
-<!--                                        </li>-->
-<!--                                        <li> <span class="total-products text-capitalize">There are 13 products.</span></li>-->
-<!--                                    </ul>-->
-<!--                                </nav>-->
-<!--                            </div>-->
-<!--                            <div class="col-12 col-md-6 position-relative">-->
-<!--                                <div class="shop-grid-button d-flex align-items-center">-->
-<!--                                    <span class="sort-by">Sort by:</span>-->
-<!--                                    <button class="btn-dropdown d-flex justify-content-between" type="button" id="dropdownMenuButtons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                                        Relevance <span class="ion-android-arrow-dropdown"></span>-->
-<!--                                    </button>-->
-<!--                                    <div class="dropdown-menu shop-grid-menu" aria-labelledby="dropdownMenuButton">-->
-<!--                                        <a class="dropdown-item" href="#">Relevance</a>-->
-<!--                                        <a class="dropdown-item" href="#"> Name, A to Z</a>-->
-<!--                                        <a class="dropdown-item" href="#"> Name, Z to A</a>-->
-<!--                                        <a class="dropdown-item" href="#"> Price, low to high</a>-->
-<!--                                        <a class="dropdown-item" href="#"> Price, high to low</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                        <!-- Right Side End -->
-<!--                    </div>-->
-                    <!-- Shop Top Area End -->
 
                     <!-- Shop Bottom Area Start -->
                     <div class="shop-bottom-area mt-35">
@@ -79,9 +42,12 @@
                         <div class="tab-content jump">
                             <!-- Tab One Start -->
                             <div id="shop-1" class="tab-pane active">
-                                <div class="row">
-                                    <div class="mb-60px col-md-4 col-sm-6 col-lg-4 col-xl-3" v-for="(product,index ) in home_data.main_categories[current_main_category].products[0]" :key="current_main_category.id">
-                                        <div class="slider-single-item">
+                                <div class="row" >
+
+                                    <h1 v-if="home_data.main_categories[current_main_category] === undefined">Currently no Products Available{{home_data.main_categories[current_main_category]}}</h1>
+
+                                    <div class="mb-60px col-md-4 col-sm-6 col-lg-4 col-xl-3" v-else v-for="(product,index ) in home_data.main_categories[current_main_category].products" :key="current_main_category.id">
+                                        <div class="slider-single-item" >
                                             <!-- Single Item -->
                                             <article class="list-product text-left" >
                                                 <div class="product-inner">

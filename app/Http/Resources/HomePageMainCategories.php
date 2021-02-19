@@ -32,10 +32,9 @@ class HomePageMainCategories extends JsonResource
                 'image' => $this->image,
                 'slug' => $this->slug,
                 'description' => $this->description,
-                'products' => [
-                    ProductResource::collection($products),
+                'products' => ProductResource::collection($products),
 
-                ],
+
         ];
     }
 }

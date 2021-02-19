@@ -53,7 +53,9 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
     <link rel="stylesheet" href="assets/css/style.min.css">
-    <link rel="stylesheet" href="{{ asset('js/app.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('js/app.css') }}">--}}
+{{--    <link rel="stylesheet" href={{asset('./css/app.css')}}>--}}
+
 
     <!-- Main Style CSS -->
     <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
